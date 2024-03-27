@@ -73,6 +73,7 @@ for fila in archivos_en_directorio:
 
 pdffile = pd.DataFrame(lista)
 
+
 ##############################################################################
 # Limpiamos los datos
 # Los campos numericos cargaron con '.' y ',' esto es un problema al momento
@@ -91,5 +92,9 @@ pdffile['importe']=pdffile['importe'].apply(reemplazacoma)
 
 pdffile.to_csv("/path_to_save/oc_detalles_clean.csv",index=False)
 
-#-------------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------
+# Finalmente el archivo oc_detalles_clean.csv lo cargamos a la tabla: det_ocompras en postgres
+# esto lo podemos realizar con el comando COPY o usando Pentaho o directamente desde python
+#----------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------
