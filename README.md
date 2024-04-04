@@ -1,4 +1,4 @@
-## Identificando valores atípicos en la compra de bienes mediante la plataforma Perú Compras
+## Identificando valores atípicos en la compra de bienes usando la data de la plataforma Perú Compras
 ---
 #### Tabla de Contenidos
 
@@ -42,15 +42,13 @@ Este proyecto de ingenieria de datos tiene dos objetivos: analizar valores atíp
 
 ### Ejecutando el Proyecto
 ---
-Además de lo listado en tecnología, se usarán ejecutables desarrollados en `.bat` para unir los archivos csv de las ordenes de compra.
-* Las órdenes de compra se descargaron todos del periodo 2022 hasta agosto del 2023 y el padrón sunat se descargó del último mes disponible.
-* Crear la estructura de las tablas iniciales `sql\1.- tablas_iniciales.sql`.
-* Cargar la data del Padron sunat `pentaho\cargaPadron.ktr`.
-* Procedimiento para la carga inicial de ordenes de compra `carga\cargaOrdenCompra.md` (*unir los archivos csv y cargar con pentaho hacia stg_ocompras*).
-  * En esta base inicial cada registro contiene el total de la compra, no contiene el total de productos adquiridos, el precio unitario del producto, que es fundamental para el análisis en base al precio.
-* Carga de empresas proveedoras y entidades del estado (*compradores*) `carga\Dimensiones.sql`.
-* Utilizar Google Collab para descargar las ordenes de compra en formato PDF, luego extraer el código del artículo, cantidad, precio unitario, igv e importe total, este sera el detalle de las órdenes de compra que se almacenarán en la base de datos para armar el modelo.
-* Se puede conectar directamente a la base de datos para visualizar los datos y armar el modelo, para este caso se hizo una consulta sql para obtener solo la información necesaria para el análsis.
+Las órdenes de compra se descargaron todos del periodo 2022 hasta agosto del 2023 y el padrón sunat se descargó del último mes disponible.
+* Crear la estructura de las tablas iniciales `sql/1.-Tablas_iniciales.sql`, se encuentra las tablas para el padron de la sunat, ordenes de compra y servicios.
+* Ejecutar la carga de las ordenes de compra, ordenes de servicio, padron Sunat desde pentaho ubicado en la carpeta `/pentaho/load_oc_os.ktr` y `/pentaho/load_padronsunatDA.ktr`
+* Ejecutar el script ubicado en `/sql/2.-Tablas_secundarias.sql` para la carga del resto de tablas y datos.
+* El procedimiento para la descarga de las órdenes de compra (archivos pdf) y almacenarlos en gdrive, realización del scraping de los códigos de productos, precio unitario, cantidad, igv y total se encuentra en: `/carga/instrucciones.md`.
+* Se puede conectar directamente a la base de datos para visualizar los datos y armar el modelo desde power bi.
+
 
 ## Observaciones
 ---
@@ -65,8 +63,8 @@ Se dió formato condicional a los valores que superen 3 veces el valor de sigma,
 <image src="/images/Tablero.png" alt="Descarga de archivos pdf">
 
 Se puede observar en la distribución, para el registro seleccionado, que existe un valor atípico, muy alejado de la media que puede indicarnos posibles sobre costos en la compra de un producto.
-Se pudo observar también que para las regiones de la selva los costos de los productos son muy superiores a sus pares de la sierra o costa (esto puede ser debido al costo del flete) , por lo que una sugerencia es agrupar por regiones de la selva, sierra, costa o regiones del norte, centro, sur para realizar el análisis.
-El archivo **pbix** lo puedes encontrar en la carpeta **powerbi/readme.md**
+Se pudo observar también que para las regiones de la selva los costos de los productos son muy superiores a sus pares de la sierra o costa, por lo que una sugerencia es agrupar por regiones de la selva, sierra, costa o regiones del norte, centro, sur para realizar el análisis.
+Eel archivo **pbix** lo puedes encontrar en la carpeta **powerbi/readme.md**
 
 #### Contacto
 Cualquier duda acerca del proyecto pueden escribir al siguiente correo: glenan.gora@gmail.com
