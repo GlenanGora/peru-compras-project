@@ -64,7 +64,7 @@ Se dió formato condicional a los valores que superen 3 veces el valor de sigma,
 
 Se puede observar en la distribución, para el registro seleccionado, que existe un valor atípico, muy alejado de la media que puede indicarnos posibles sobre costos en la compra de un producto.
 Se pudo observar también que para las regiones de la selva los costos de los productos son muy superiores a sus pares de la sierra o costa, por lo que una sugerencia es agrupar por regiones de la selva, sierra, costa o regiones del norte, centro, sur para realizar el análisis.
-Eel archivo **pbix** lo puedes encontrar en la carpeta **powerbi/readme.md**
+El archivo **pbix** lo puedes encontrar en la carpeta **powerbi/readme.md**
 
 #### Contacto
 Cualquier duda acerca del proyecto pueden escribir al siguiente correo: glenan.gora@gmail.com
